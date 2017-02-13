@@ -8,16 +8,73 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	id: 'mapbox.streets'
 }).addTo(mymap);
 
-var circle = L.circle([51.555069, -0.108427], {
-	color: 'red',
-	fillColor: '#f03',
-	fillOpacity: 0.5,
-	radius: 500
-}).addTo(mymap);
+var stadiums = [
+	{
+		name: "Wembley",
+		x: 51.556648, 
+		y: -0.279208,
+		color: "#06195d"
+	},
+	{
+		name: "Stamford Bridge",
+		x: 51.481830,
+		y: -0.190924,
+		color: "#034694"
+	},
+	{
+		name: "Emirates",
+		x: 51.555513, 
+		y: -0.108214,
+		color: "#cd1440"
+	}, 
+	
+	{
+		name: "Liverpool",
+		x: 53.431379,
+		y: -2.960701,
+		color: "#D30000",
+	},
+	// {
+	// 	name: "",
+	// 	x: ,
+	// 	y: ,
+	// 	color: 
+	// },
+	// {
+	// 	name: "",
+	// 	x: ,
+	// 	y: ,
+	// 	color: 
+	// },
+	// {
+	// 	name: "",
+	// 	x: ,
+	// 	y: ,
+	// 	color: 
+	// },
+	// {
+	// 	name: "",
+	// 	x: ,
+	// 	y: ,
+	// 	color: 
+	// },
+	// {
+	// 	name: "",
+	// 	x: ,
+	// 	y: ,
+	// 	color: 
+	// }
 
-var circle = L.circle([51.481830, -0.190924], {
-	color: '#034694',
-	fillColor: '#034694',
-	fillOpacity: 0.8,
-	radius: 500
+]
+
+
+for (var i = 0; i < stadiums.length; i++) {
+	var circle = L.circle([stadiums[i].x, stadiums[i].y], {
+	color: stadiums[i].color,
+	fillColor: stadiums[i].color,
+	fillOpacity: 0.5,
+	radius: 1500
 }).addTo(mymap);
+}
+
+
