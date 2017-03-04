@@ -7,11 +7,7 @@ with open('table.json') as data_file:
 
 # print(data[0]['pts'])
 
-extendedTable = [[int(x['pts'])] for x in data] 
-
-for row in extendedTable:
-	row.append(row[0] + 1)
-	row.append(row[0] + 3)
+extendedTable = [[int(x['pts']), int(x['pts']) + 1, int(x['pts']) + 3] for x in data] 
 
 pprint(extendedTable)
 
@@ -28,25 +24,11 @@ for i in range(20):
 
 
 newPos = pos
-print('new pos')
-# pprint(newPos)
-for i in range(20):
 
-	# print(row)
-	# print('*****************')
-	
+for i in range(20):
 	for col in pos[i]:
-		# print(col)
-		# print(newPos[col - 1])
-		# print('---')
 		if i + 1 not in newPos[col - 1]:
 			newPos[col - 1].append(i + 1)
-
-
-
-# for i in range(20):
-# 	newPos[i] = set(newPos[i])
-
 
 pprint(newPos)
 
