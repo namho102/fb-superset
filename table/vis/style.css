@@ -2,10 +2,22 @@ body {
 	font-family: Roboto;
 }
 
+table td {
+	align: center;
+}
 
 td.el-table_1_column_2 {
 	font-weight: bold;
 }
+
+.el-table--fit {
+	border-left: none;
+}
+.el-table--border td, .el-table--border th {
+	border-right: none;
+	border-left: none;
+}
+
 
 
 tbody > tr:nth-child(4) td {
