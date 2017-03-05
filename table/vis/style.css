@@ -2,6 +2,16 @@ body {
 	font-family: Roboto;
 }
 
-span {
-	margin-left: 20px;
+
+td.el-table_1_column_2 {
+	font-weight: bold;
+}
+
+
+tbody > tr:nth-child(4) td {
+	border-bottom: 2px solid #999; 
+}
+
+tbody > tr:nth-child(18) td {
+	border-top: 2px solid #999; 
 }

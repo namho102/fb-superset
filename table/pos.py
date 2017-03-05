@@ -24,7 +24,7 @@ pprint(pos)
 
 for i in range(20):
 	# maxPos = 
-	data[i]['pos'] = {'lowest': max(pos[i]), 'highest': min(pos[i])}
+	data[i]['pos'] = {'current': i + 1, 'lowest': max(pos[i]), 'highest': min(pos[i])}
 
 
 

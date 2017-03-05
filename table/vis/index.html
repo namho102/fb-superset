@@ -17,7 +17,13 @@
 		<div id="app">
 			 <el-table
 		      :data="tableData"
-		      style="width: 100%">
+		      border
+		      >
+		       <el-table-column
+			      type="index"
+			      width="60">
+			    </el-table-column>
+
 		      <el-table-column
 		        prop="team"
 		        label="Team"
@@ -26,13 +32,21 @@
 		      <el-table-column
 		        prop="pts"
 		        label="PTS"
-		        width="180">
+		        width="100">
 		      </el-table-column>
-		      <el-table-column label="Possible postions">
-		      	<template scope="scope">
-			    	<span>Highest: {{ scope.row.pos.highest }}</span>
-			    	<span>Lowest: {{ scope.row.pos.lowest }}</span>
-			    </template>   
+		      <el-table-column label="Possible postion">
+		      	<el-table-column label="Highest" width="100">
+					<template scope="scope">
+		      	 		<el-tag :type="scope.row.pos.highest === scope.row.pos.current ? '' : 'success'">{{scope.row.pos.highest}}</el-tag>
+			    	</template>  
+				</el-table-column>
+
+				<el-table-column label="Lowest" width="100">
+					<template scope="scope">
+		      	 		<el-tag :type="scope.row.pos.lowest === scope.row.pos.current ? '' : 'danger'">{{scope.row.pos.lowest}}</el-tag>
+			    	</template>  
+				</el-table-column>
+		      	 
 		      </el-table-column>
 	
 		    </el-table>
