@@ -13,7 +13,7 @@ class TableSpider(scrapy.Spider):
 
     def parse(self, response):
 
-        for row in response.css('div.content > div > div:nth-child(7) table.standard_tabelle tr'):
+        for row in response.css('div.content > div > div:nth-child(7) table.standard_tabelle tr:not(:nth-child(1))'):
         	yield {'team': row.css('td:nth-child(3) a ::text').extract_first(), 'pts': row.css('td:nth-child(10) ::text').extract_first()}
 
         # next_page = response.css('div.prev-post > a ::attr(href)').extract_first()
