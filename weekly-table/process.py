@@ -10,7 +10,12 @@ arr = np.asarray(data)
 splitted_list = np.split(arr, len(data)/20)
 # pprint(splitted_list)
 
-for week in splitted_list:
-	print(week[0])
+# for week in splitted_list:
+# 	print(week[0])
 
-# pprint(splitted_list)	
+data = np.array(splitted_list).tolist()
+with open('result.json', 'w') as fp:
+    json.dump(data, fp)
+
+
+# pprint(data)	
