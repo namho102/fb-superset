@@ -41,6 +41,7 @@ loadJSON(function(response) {
 	for (var j = 0; j < 20; j++) {
 		graphsOptions[graphsOptions.length] = {
 			"bullet": "round",
+			"balloonText": teams[j],
 			"title": teams[j],
 			"valueField": teams[j],
 			"fillAlphas": 0,
@@ -48,9 +49,6 @@ loadJSON(function(response) {
 			"lineThickness": 2,
 		}
 	}
-
-
-	
 
 
 	var chart = AmCharts.makeChart("chartdiv", {
@@ -62,7 +60,7 @@ loadJSON(function(response) {
 		"dataProvider": arr,
 		"valueAxes": [{
 			"integersOnly": true,
-			"maximum": 20,
+			"maximum": 7,
 			"minimum": 1,
 			"reversed": true,
 			"axisAlpha": 0,
