@@ -12,7 +12,20 @@ function loadJSON(callback) {
 	xobj.send(null);
 }
 
+function getColor(colors, team) {
+	return colors[team] != undefined ? colors[team] : ""
+}
+
 var arr = [];
+var colors = {
+	"Arsenal FC": "#a0854e",
+	"Chelsea FC": "#034694",
+	"Manchester City": "#6caedf",
+	"Manchester United": "#e21b22",
+	"Liverpool FC": "#00604f",
+	"Tottenham Hotspur": "#0b0e15"
+}
+
 
 loadJSON(function(response) {
 	// Parse JSON string into object
@@ -32,23 +45,26 @@ loadJSON(function(response) {
 	}
 	var teams = Object.keys(arr[0])
 	teams.shift()
-	console.log(teams);
+	// console.log(teams);
 
-	console.log(arr);
+	// console.log(arr);
 
 	var graphsOptions = []
 
 	for (var j = 0; j < 20; j++) {
 		graphsOptions[graphsOptions.length] = {
-			"bullet": "round",
+			"bullet": "",
+			// "bulletSize": 4,
 			"balloonText": teams[j],
 			"title": teams[j],
 			"valueField": teams[j],
 			"fillAlphas": 0,
-			// "lineColor": "#ffffff",
+			"lineColor": getColor(colors, teams[j]),
 			"lineThickness": 2,
 		}
 	}
+
+	console.log(graphsOptions);
 
 
 	var chart = AmCharts.makeChart("chartdiv", {
@@ -69,18 +85,24 @@ loadJSON(function(response) {
 			"position": "left",
 			"title": ""
 		}],
-		"startDuration": 0.5,
+		"startDuration": 0.1,
 		"graphs": graphsOptions,
 		"chartCursor": {
 			"cursorAlpha": 0,
-			"zoomable": false
+			"zoomable": true,
+			"graphBulletAlpha": 1
 		},
+		// "valueScrollbar": {
+		// 	"oppositeAxis": false,
+		// 	"offset": 50,
+		// 	"scrollbarHeight": 10
+		// },
 		"categoryField": "round",
 		"categoryAxis": {
 			"title": "",
 			"gridPosition": "start",
 			"axisAlpha": 0,
-			"fillAlpha": 0.0,
+			"fillAlpha": 0,
 			"fillColor": "#000000",
 			"gridAlpha": 0,
 			"position": "bottom"
@@ -90,5 +112,7 @@ loadJSON(function(response) {
 			"position": "bottom-right"
 		}
 	});
+
+
 
 });
